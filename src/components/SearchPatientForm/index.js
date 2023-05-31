@@ -23,10 +23,12 @@ export const SearchPatientForm = ({ patients, setSubmittedFormData, setPatients 
 
 
     watch((data, { name }) => {
-
         setTimeout(() => {
             const searchedPatients = searchPatient(data, { name }, patients);
             setPatients(searchedPatients);
+            sessionStorage.setItem("searchedPatients", JSON.stringify(searchedPatients));
+            console.log("searchedPatients", searchedPatients)
+            console.log("patients", patients)
         }, 5000);
     })
     // console.log(data, name, type))}	 // watch input value by passing the name of it

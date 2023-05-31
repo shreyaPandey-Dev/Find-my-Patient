@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { PatientContext } from "context/PatientContext";
-import { fetchPatients } from "services/api";
 import { SearchPatientForm } from "components/SearchPatientForm";
 import { PatientList } from "components/PatientList";
 
@@ -17,16 +16,8 @@ export const PatientSearchList = () => {
 
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await fetchPatients(setPatients);
-            } catch (error) {
-                console.error('Error fetching patients:', error);
-            }
-        };
 
-        fetchData();
-    }, []);
+    }, [setPatients]);
 
 
 

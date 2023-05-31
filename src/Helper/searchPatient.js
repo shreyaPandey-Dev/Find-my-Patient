@@ -2,7 +2,6 @@
 
 // searches for the field in array
 export const searchPatient = (data, { name }, patients) => {
-    // console.log("patients------------------------------------", patients);
 
     console.log("helper searchQuery=", data);
     console.log("key searchQuery=", data[name]);
@@ -10,14 +9,14 @@ export const searchPatient = (data, { name }, patients) => {
     const searchParam = data[name];
     console.log("helper searchQuery searchParam=", searchParam, name);
 
-    // add argument to the filter function | element
     const finder = function (element) {
-        return element[name] === searchParam.trim() //use the argument here.
+        console.log("finder element=", element[name] === searchParam);
+        return element[name] === searchParam
     }
 
 
     const result = patients?.filter(finder);
-    console.log(result);
+    console.log("result", result);
 
 
     return result.length > 0 ? result : patients;

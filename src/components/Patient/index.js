@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Badge, Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import { getPatientById } from "Helper/getPatientById";
 import { useContext } from "react";
@@ -13,13 +13,15 @@ export const Patient = ({ toggleModal, modal, setModal }) => {
     const { patients, setPatients } = useContext(PatientContext);
     const { patientId } = useParams();
     const patientRecord = getPatientById(patientId, patients);
-    console.log("Patient ID called patientRecord", patientRecord);
+    const navigate = useNavigate();
+
 
     const handleRemovePatient = (patientId, toggleModal) => {
         // open popup modal
         setModal(true);
-        console.log("handleRemovePatient")
-
+    };
+    const handleGoBack = () => {
+        navigate("/"); // Replace "/patient-search" with the actual path of the PatientSearchList component
     };
 
     return (
@@ -54,7 +56,7 @@ export const Patient = ({ toggleModal, modal, setModal }) => {
                     <Badge
                         className="text-dark"
                         color="light"
-                        href="#"
+                        onClick={handleGoBack}
                     >
                         Go Back
                     </Badge>

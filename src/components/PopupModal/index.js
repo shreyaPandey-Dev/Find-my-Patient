@@ -12,12 +12,9 @@ import { deletePatient } from "Helper/deletePatient";
  */
 export const PopupModal = ({ toggleModal, modal, patientId, setModal }) => {
     const { patients, setPatients } = useContext(PatientContext);
-    console.log("modal called");
 
     const removePatient = () => {
-        console.log("removePatient")
         const updatedPatients = deletePatient(patientId, patients);
-        console.log("removePatient updatedPatients value", updatedPatients)
         setPatients(updatedPatients);
         setModal(false);
     }
