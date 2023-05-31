@@ -1,11 +1,4 @@
 export const fetchPatients = async (setPatients) => {
-    const searchedPatientsStr = sessionStorage.getItem("searchedPatients");
-    if (searchedPatientsStr) {
-        const searchedPatients = JSON.parse(searchedPatientsStr);
-        setPatients(searchedPatients);
-    } else {
-        await fetchPatients(setPatients);
-    }
 
     try {
         const response = await fetch("mock_data.json");

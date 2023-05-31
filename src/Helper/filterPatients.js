@@ -1,9 +1,13 @@
+
 // filter by age, filter by gender
-export const filterPatients = (searchQuery) => {
-
-    const result = patients.names.filter(function (e) { return e.name == searchQuery })
-    console.log(result);
+export const filterPatients = (searchQuery, patients) => {
 
 
-    return "filterResults";
+    const filteredResults = patients.filter((patient) => {
+        return patient.gender.toLowerCase() === searchQuery.toLowerCase();
+    });
+
+    console.log(filteredResults);
+
+    return filteredResults;
 }
