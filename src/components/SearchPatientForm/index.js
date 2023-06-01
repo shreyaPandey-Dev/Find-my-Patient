@@ -1,3 +1,4 @@
+import { filterPatients } from "Helper/filterPatients";
 import { searchPatient } from "Helper/searchPatient";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -54,7 +55,17 @@ export const SearchPatientForm = ({ patients, setSubmittedFormData, setPatients 
             ID:  <input defaultValue="" {...register("id")} /><br />
 
             Email id: <input defaultValue="" {...register("email")} /><br />
-            <input type="submit" />
+
+            <div>
+                Filter results:
+                <select {...register("gender")} onChange={filterPatients}>
+                    <option value="female">female</option>
+                    <option value="male">male</option>
+                </select>
+            </div>
+            {/* <input type="submit" />
+            <input type="reset" />
+            */}
         </form>
     );
 };

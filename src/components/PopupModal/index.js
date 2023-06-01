@@ -17,6 +17,7 @@ export const PopupModal = ({ toggleModal, modal, patientId, setModal }) => {
         const updatedPatients = deletePatient(patientId, patients);
         setPatients(updatedPatients);
         setModal(false);
+        //redirect to main pg
     }
 
     return (

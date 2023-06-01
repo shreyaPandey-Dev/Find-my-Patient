@@ -3,7 +3,6 @@ import { PatientContext } from "context/PatientContext";
 import { SearchPatientForm } from "components/SearchPatientForm";
 import { PatientList } from "components/PatientList";
 import { fetchPatients } from "services/api";
-import { DropdownFilter } from "components/DropdownFilter";
 
 
 
@@ -18,29 +17,8 @@ export const PatientSearchList = () => {
 
 
     useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                await fetchPatients(setPatients);
-            } catch (error) {
-                console.error('Error fetching patients:', error);
-            }
-        };
-
-        fetchData();
-
-        const searchedPatientsStr = sessionStorage.getItem("searchedPatients");
-        if (searchedPatientsStr) {
-            const searchedPatients = JSON.parse(searchedPatientsStr);
-            setPatients(searchedPatients);
-        }
-        // } else {
-        //     await fetchPatients(setPatients);
-        // }
-
-    }, [setPatients]);
-
-
+        fetchPatients(setPatients);
+    }, [patients, setPatients]);
 
     return (
         <>
@@ -49,7 +27,7 @@ export const PatientSearchList = () => {
                 setSubmittedFormData={setSubmittedFormData}
                 setPatients={setPatients}
             />
-            <DropdownFilter />
+            {/* <DropdownFilter /> */}
             <PatientList patients={patients || []}
             />
         </>
