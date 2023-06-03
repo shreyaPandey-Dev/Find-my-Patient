@@ -5,14 +5,17 @@ import { createContext, useState, useMemo } from "react";
 export const PatientContext = createContext();
 
 export const PatientProvider = ({ children }) => {
-    const [patients, setPatients] = useState([]);
+  const [patients, setPatients] = useState([]);
 
-    // Memoize the context value to prevent unnecessary re-renders
-    const contextValue = useMemo(() => ({ patients, setPatients }), [patients, setPatients]);
+  // Memoize the context value to prevent unnecessary re-renders
+  const contextValue = useMemo(
+    () => ({ patients, setPatients }),
+    [patients, setPatients]
+  );
 
-    return (
-        <PatientContext.Provider value={contextValue}>
-            {children}
-        </PatientContext.Provider>
-    );
+  return (
+    <PatientContext.Provider value={contextValue}>
+      {children}
+    </PatientContext.Provider>
+  );
 };

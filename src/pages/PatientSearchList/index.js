@@ -3,34 +3,34 @@ import { PatientContext } from "context/PatientContext";
 import { SearchPatientForm } from "components/SearchPatientForm";
 import { PatientList } from "components/PatientList";
 import { fetchPatients } from "services/api";
-
-
+import { Loader } from "components/Loader";
 
 /**
  * PatientSearchList
  * Displays Search form and Corresponding List of Patients
  */
 export const PatientSearchList = () => {
-    const { patients, setPatients } = useContext(PatientContext);
-    const [submittedFormData, setSubmittedFormData] = useState([]);
-    const [searchedData, setSearchedData] = useState([]);
+  const { patients, setPatients } = useContext(PatientContext);
+  const [submittedFormData, setSubmittedFormData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  // const [resetForm, setResetForm] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    fetchPatients(setPatients, setLoading);
+  }, [setPatients]);
 
-    useEffect(() => {
-        fetchPatients(setPatients);
-    }, [patients, setPatients]);
+  return (
+    <>
+      {loading && <Loader loading={loading} />}
+      <div>
+        <SearchPatientForm
+          setSubmittedFormData={setSubmittedFormData}
+          setLoading={setLoading}
+        />
+      </div>
 
-    return (
-        <>
-
-            <SearchPatientForm patients={patients || []}
-                setSubmittedFormData={setSubmittedFormData}
-                setPatients={setPatients}
-            />
-            {/* <DropdownFilter /> */}
-            <PatientList patients={patients || []}
-            />
-        </>
-    );
+      <PatientList patients={patients || []} setLoading={setLoading} />
+    </>
+  );
 };
-

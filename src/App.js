@@ -1,7 +1,7 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { PatientProvider } from "context/PatientContext";
-import { PatientSearchList } from 'pages/PatientSearchList';
-import { PatientDetails } from 'pages/PatientDetails';
+import { PatientSearchList } from "pages/PatientSearchList";
+import { PatientDetails } from "pages/PatientDetails";
 
 function App() {
   return (

@@ -1,9 +1,17 @@
-// sort by alphabetical order
-export const sortPatients = (searchQuery) => {
+//sort patients alphabetically
+export const sortPatients = (patients, setPatients) => {
+  const sortedResults = [...patients].sort((a, b) => {
+    const nameA = a.first_name.toLowerCase();
+    const nameB = b.first_name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
 
-    const result = patients.names.filter(function (e) { return e.name == searchQuery })
-    console.log(result);
-
-
-    return "sortedResults";
-}
+  setPatients(sortedResults);
+  return sortedResults;
+};
