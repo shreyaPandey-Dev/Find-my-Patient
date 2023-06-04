@@ -22,7 +22,7 @@ export const PopupModal = ({ toggleModal, modal, patientId, setModal }) => {
 
   return (
     <Modal isOpen={modal}>
-      <ModalHeader>Modal title</ModalHeader>
+      <ModalHeader>Deletion Confirmation</ModalHeader>
       <ModalBody>
         Are you sure you want to delete the patient with ID {patientId} ?
       </ModalBody>

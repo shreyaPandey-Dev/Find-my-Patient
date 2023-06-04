@@ -1,4 +1,3 @@
-import { Button } from "reactstrap";
 import { filterPatientsGender } from "Helper/filterPatientsGender";
 import { filterPatientsAge } from "Helper/filterPatientsAge";
 import { searchPatient } from "Helper/searchPatient";
@@ -12,19 +11,14 @@ import { sortPatients } from "Helper/sortPatients";
  * Search form to search patient
  * handles logic for searching, filter and sorting
  */
-export const SearchPatientForm = ({
-  setSubmittedFormData,
-  setLoading,
-  setResetForm,
-  resetForm,
-}) => {
+export const SearchPatientForm = () => {
   const { register, handleSubmit, watch } = useForm({
     mode: "onTouched",
   });
   const { patients, setPatients } = useContext(PatientContext);
 
   const onSubmit = (submittedData) => {
-    setSubmittedFormData(submittedData);
+    console.log(submittedData);
   };
 
   useEffect(() => {
@@ -66,9 +60,7 @@ export const SearchPatientForm = ({
     patients,
     setPatients,
     searchPatient,
-    // selectedGender,
     filterPatientsGender,
-    // selectedAge,
     filterPatientsAge,
   ]);
 
@@ -98,12 +90,9 @@ export const SearchPatientForm = ({
           <option value="31-45">31-45</option>
           <option value="greaterthan45">{">"}45</option>
         </select>
-        <Button
-          color="primary"
-          onClick={() => sortPatients(patients, setPatients)}
-        >
+        <button onClick={() => sortPatients(patients, setPatients)}>
           Sort by Name
-        </Button>
+        </button>
       </div>
     </form>
   );

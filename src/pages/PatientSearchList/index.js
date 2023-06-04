@@ -11,9 +11,7 @@ import { Loader } from "components/Loader";
  */
 export const PatientSearchList = () => {
   const { patients, setPatients } = useContext(PatientContext);
-  const [submittedFormData, setSubmittedFormData] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [resetForm, setResetForm] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -24,13 +22,10 @@ export const PatientSearchList = () => {
     <>
       {loading && <Loader loading={loading} />}
       <div>
-        <SearchPatientForm
-          setSubmittedFormData={setSubmittedFormData}
-          setLoading={setLoading}
-        />
+        <SearchPatientForm />
       </div>
 
-      <PatientList patients={patients || []} setLoading={setLoading} />
+      <PatientList patients={patients || []} />
     </>
   );
 };

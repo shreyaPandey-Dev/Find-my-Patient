@@ -9,10 +9,10 @@ export const PatientList = ({ patients }) => {
   const navigate = useNavigate();
 
   const redirectToDetails = (patientId) => {
-    // pass id param and patients data
+    // pass id param and patients data to redirect
     navigate(`/Patient/${patientId}`, { state: { patients } });
   };
-
+  // generate headers
   const tableHeader = Object.keys(patients[0] || {}).slice(0, -4);
 
   return (
@@ -33,9 +33,6 @@ export const PatientList = ({ patients }) => {
             <td>{patient.patient_id}</td>
             <td>{patient.first_name}</td>
             <td>{patient.last_name}</td>
-            {/* <td>{patient.email}</td>
-            <td>{patient.gender}</td>
-            <td>{patient.age}</td> */}
           </tr>
         ))}
       </tbody>
