@@ -1,4 +1,4 @@
-# React Patient Search Tool
+# React "Find My Patient" Tool
 This project is a patient search tool built with React. It consists of two pages: a list page and a detail's page. The list page allows users to search for patients based on various criteria, apply filters, and sort the results. The detail's page displays the details of a selected patient.
 The user can also delete a patient profile after going to the patient profile page.
 
