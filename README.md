@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #Libraries used: 
 Reactstarp - for table
 React-hook-forms - for forms and watching input 
+Cypress - for Testing
 
 
 # List Page
