@@ -5,7 +5,7 @@ import { PatientContext } from "context/PatientContext";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { sortPatients } from "Helper/sortPatients";
-
+import "./SearchPatientForm.scss";
 /**
  * SearchPatientForm
  * Search form to search patient
@@ -72,11 +72,12 @@ export const SearchPatientForm = () => {
       <br />
       Last Name : <input defaultValue="" {...register("last_name")} />
       <br />
-      ID: <input defaultValue="" {...register("id")} />
+      ID: <input defaultValue="" {...register("id")} className="id" />
       <br />
-      Email id: <input defaultValue="" {...register("email")} />
+      Email id:{" "}
+      <input defaultValue="" {...register("email")} className="mail-id" />
       <br />
-      <div>
+      <div class="filter-bar">
         Filter results: By Gender:{" "}
         <select {...register("gender")} defaultValue="">
           <option value="">Choose</option>

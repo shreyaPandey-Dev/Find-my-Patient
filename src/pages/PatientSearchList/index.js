@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { PatientContext } from "context/PatientContext";
 import { SearchPatientForm } from "components/SearchPatientForm";
 import { PatientList } from "components/PatientList";
-import { fetchPatients } from "services/api";
 import { Loader } from "components/Loader";
-
+import { fetchPatients } from "services/api";
+import "./PatientSearchList.scss";
 /**
  * PatientSearchList
  * Displays Search form and Corresponding List of Patients
@@ -21,7 +21,7 @@ export const PatientSearchList = () => {
   return (
     <>
       {loading && <Loader loading={loading} />}
-      <div>
+      <div className="form-div">
         <SearchPatientForm />
       </div>
 

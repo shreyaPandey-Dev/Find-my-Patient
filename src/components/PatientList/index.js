@@ -19,9 +19,8 @@ export const PatientList = ({ patients }) => {
     <Table striped hover bordered>
       <thead>
         <tr>
-          {tableHeader?.map((heading, index) => {
-            return <th key={index}>{heading}</th>;
-          })}
+          <th>ID</th>
+          <th>Name</th>
         </tr>
       </thead>
       <tbody>
@@ -31,8 +30,9 @@ export const PatientList = ({ patients }) => {
             onClick={() => redirectToDetails(patient.patient_id)}
           >
             <td>{patient.patient_id}</td>
-            <td>{patient.first_name}</td>
-            <td>{patient.last_name}</td>
+            <td>
+              {patient.first_name} {patient.last_name}
+            </td>
           </tr>
         ))}
       </tbody>
