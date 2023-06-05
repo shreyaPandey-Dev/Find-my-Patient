@@ -7,10 +7,10 @@ The user can also delete a patient profile after going to the patient profile pa
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#Libraries used: 
-Reactstarp - for table
-React-hook-forms - for forms and watching input 
-Cypress - for Testing
+# Libraries used: 
+### Reactstarp - for table; 
+### React-hook-forms - for forms and watching input ; 
+### Cypress - for Testing;
 
 
 # List Page
